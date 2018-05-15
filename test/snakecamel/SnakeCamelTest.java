@@ -5,7 +5,22 @@ import static org.hamcrest.CoreMatchers.*;
 import org.junit.Test;
 
 public class SnakeCamelTest {
+	
+	@Test
 
+	public void snakecase文字列abcをcamelcaseへ変換(){ 
+
+	SnakeCamelUtil scu=new SnakeCamelUtil();
+
+	String expected="Abc"; 
+
+	String actual=scu.snakeToCamelcase("abc"); 
+
+	assertThat(actual, is(expected)); 
+
+	}
+	
+	
 	@Test
 
 	public void snakecase文字列abc_def_ghiをcamelcaseへ変換(){ 
@@ -131,6 +146,20 @@ public class SnakeCamelTest {
 	assertThat(actual, is(expected));
 
 	}
+	
+	@Test
+
+	public void 大文字にするときに空文字を送る(){
+
+	SnakeCamelUtil scu=new SnakeCamelUtil();
+
+	String expected="";
+
+	String actual=scu.capitalize("");
+
+	assertThat(actual, is(expected));
+
+	}
 
 	 
 
@@ -143,6 +172,20 @@ public class SnakeCamelTest {
 	String expected="abcd";
 
 	String actual=scu.uncapitalize("Abcd");
+
+	assertThat(actual, is(expected));
+
+	}
+	
+	@Test
+
+	public void 小文字にするときに空文字を送る(){
+
+	SnakeCamelUtil scu=new SnakeCamelUtil();
+
+	String expected="";
+
+	String actual=scu.uncapitalize("");
 
 	assertThat(actual, is(expected));
 
